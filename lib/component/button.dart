@@ -29,6 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: 35,
+
         width: 50,
         decoration: BoxDecoration(
           color: backgroundColor,

@@ -32,7 +32,7 @@ class CustomElevatedButton extends StatelessWidget {
         width: 50,
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
             bottomLeft: Radius.circular(30),

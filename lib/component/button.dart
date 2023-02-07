@@ -29,7 +29,6 @@ class CustomElevatedButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: 35,
-
         width: 50,
         decoration: BoxDecoration(
           color: backgroundColor,
@@ -57,7 +56,7 @@ class CustomElevatedButton extends StatelessWidget {
                 style: TextStyle(color: textColor, fontSize: 18)),
             WidgetSpan(
               child: Transform.translate(
-                offset: firstText == null ? Offset(-1, -9) : Offset(-1, 2),
+                offset: firstText == null ? const Offset(-1, -9) : const Offset(-1, 2),
                 child: Text(
                   '${subText ?? ''}',
                   //superscript is usually smaller in size

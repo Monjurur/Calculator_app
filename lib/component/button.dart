@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final IconData? icon;
@@ -24,19 +25,20 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return Padding(
-      padding: const EdgeInsets.only(top: 4.0),
+      padding:  const EdgeInsets.only(top: 5.0).w,
       child: Container(
         alignment: Alignment.center,
-        height: 35,
-        width: 50,
+        height: 60.h,
+        width: 35.w,
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-            bottomLeft: Radius.circular(30),
-            bottomRight: Radius.circular(30),
+          borderRadius:  BorderRadius.only(
+            topLeft: Radius.circular(30.r),
+            topRight: Radius.circular(30.r),
+            bottomLeft: Radius.circular(30.r),
+            bottomRight: Radius.circular(30.r),
           ),
         ),
         child: RichText(
@@ -47,13 +49,13 @@ class CustomElevatedButton extends StatelessWidget {
                 child: Text(
                   '${firstText ?? ''}',
                   textScaleFactor: 0.7,
-                  style: TextStyle(color: textColor, fontSize: 18),
+                  style: TextStyle(color: textColor, fontSize: 10.sp),
                 ),
               ),
             ),
             TextSpan(
                 text: '$mainText',
-                style: TextStyle(color: textColor, fontSize: 18)),
+                style: TextStyle(color: textColor, fontSize: 10.sp)),
             WidgetSpan(
               child: Transform.translate(
                 offset: firstText == null ? const Offset(-1, -9) : const Offset(-1, 2),
@@ -61,7 +63,7 @@ class CustomElevatedButton extends StatelessWidget {
                   '${subText ?? ''}',
                   //superscript is usually smaller in size
                   textScaleFactor: 0.7,
-                  style: TextStyle(color: textColor, fontSize: 18),
+                  style: TextStyle(color: textColor, fontSize: 10.sp),
                 ),
               ),
             )

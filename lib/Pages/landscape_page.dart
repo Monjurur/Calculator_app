@@ -1,5 +1,6 @@
 import 'package:calculator_app/responsive/Page_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../component/button.dart';
 
@@ -17,8 +18,8 @@ double width = 0;
 class _LandscapePageState extends State<LandscapePage> {
   Widget calbutton(String btntext, Color btncolor, Color textColor,) {
     return SizedBox(
-      height: height / 10,
-      width: height / 10,
+      height: 80.h,
+     // width: 6.w,
       child: ElevatedButton(
         onPressed: () {
           calculation(btntext);
@@ -30,7 +31,7 @@ class _LandscapePageState extends State<LandscapePage> {
         ),
         child: Text(
           "$btntext",
-          style: TextStyle(fontSize: 20, color: textColor),
+          style: TextStyle(fontSize: 10.sp, color: textColor),
         ),
       ),
     );
@@ -41,6 +42,7 @@ class _LandscapePageState extends State<LandscapePage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     Orientation currentOrientation = MediaQuery.of(context).orientation;
       height = MediaQuery.of(context).size.height;
       width = MediaQuery.of(context).size.width;
@@ -56,10 +58,10 @@ class _LandscapePageState extends State<LandscapePage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
                Padding(
-                padding: EdgeInsets.only(right: 30.0),
+                padding: EdgeInsets.only(right: 30.0).w,
                 child: Text(
                   "$text",
-                  style: TextStyle(color: Colors.white, fontSize: 50),
+                  style: TextStyle(color: Colors.white, fontSize: 30.sp),
                   textAlign: TextAlign.left,
                 ),
               ),
@@ -68,7 +70,7 @@ class _LandscapePageState extends State<LandscapePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SizedBox(height: 5,),
+                    SizedBox(height: 5.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -78,14 +80,10 @@ class _LandscapePageState extends State<LandscapePage> {
                         CustomElevatedButton(onPressed: () {  }, mainText: 'm+',backgroundColor: Colors.white24,textColor: Colors.white),
                         CustomElevatedButton(onPressed: () {  }, mainText: 'm-',backgroundColor: Colors.white24,textColor: Colors.white),
                         CustomElevatedButton(onPressed: () {  }, mainText: 'mr',backgroundColor: Colors.white24,textColor: Colors.white),
-                        /*CustomElevatedButton(onPressed: () {  }, text: ")",backgroundColor: Colors.white24,textColor: Colors.white),
-                        CustomElevatedButton(onPressed: () {  }, text: "mc",backgroundColor: Colors.white24,textColor: Colors.white),
-                        CustomElevatedButton(onPressed: () {  }, text: "m+",backgroundColor: Colors.white24,textColor: Colors.white),
-                        CustomElevatedButton(onPressed: () {  }, text: "m-",backgroundColor: Colors.white24,textColor: Colors.white),
-                        CustomElevatedButton(onPressed: () {  }, text: "mr",backgroundColor: Colors.white24,textColor: Colors.white),*/
+
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 5.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -98,7 +96,7 @@ class _LandscapePageState extends State<LandscapePage> {
 
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 5.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -110,7 +108,7 @@ class _LandscapePageState extends State<LandscapePage> {
                         CustomElevatedButton(onPressed: () {  }, mainText: 'log',subText:'10',backgroundColor: Colors.white24,textColor: Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 5.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -123,7 +121,7 @@ class _LandscapePageState extends State<LandscapePage> {
                       ],
 
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 5.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -135,14 +133,14 @@ class _LandscapePageState extends State<LandscapePage> {
                         CustomElevatedButton(onPressed: () {  }, mainText: 'Rand',backgroundColor: Colors.white24,textColor: Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                   // SizedBox(height: 5.h,),
                   ],
                 ),
                 rightSection:   Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SizedBox(height: 5,),
+                   // SizedBox(height: 3.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -152,7 +150,7 @@ class _LandscapePageState extends State<LandscapePage> {
                         calbutton("/" ,Colors.amber[700]! ,Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 2.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -162,7 +160,7 @@ class _LandscapePageState extends State<LandscapePage> {
                         calbutton("x" ,Colors.amber[700]! ,Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 2.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -172,7 +170,7 @@ class _LandscapePageState extends State<LandscapePage> {
                         calbutton("-" ,Colors.amber[700]! ,Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 2.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -182,21 +180,21 @@ class _LandscapePageState extends State<LandscapePage> {
                         calbutton("+" ,Colors.amber[700]! ,Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 2.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SizedBox(
-                          width: width / 6.9,
-                          height: height/10,
+                          width: 60.w,
+                          height: 65.h,
                           child: ElevatedButton(
                               onPressed: () {
                                 calculation('0');
                               },
                               style: ElevatedButton.styleFrom(shape: const StadiumBorder(),backgroundColor: Colors.white38),
-                              child: const Text(
+                              child:  Text(
                                 "0",
-                                style: TextStyle(fontSize: 25, color: Colors.white),
+                                style: TextStyle(fontSize: 12.sp, color: Colors.white),
                               )),
                         ),
 
@@ -204,7 +202,7 @@ class _LandscapePageState extends State<LandscapePage> {
                         calbutton("=" ,Colors.amber[700]! ,Colors.white),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                   // SizedBox(height: 5.h,),
                   ],
                 ),
               ),

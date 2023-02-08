@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PortraitPage extends StatefulWidget {
   const PortraitPage({Key? key}) : super(key: key);
@@ -12,10 +13,10 @@ double height = 0;
 double width = 0;
 
 class _PortraitPageState extends State<PortraitPage> {
-  Widget calbutton(String btntext, Color btncolor, Color textColor) {
+  Widget calbutton(String btntext, Color btncolor, Color textColor,) {
     return SizedBox(
-      height: height / 11,
-      width: height / 11,
+      height: 80.h,
+      // width: 6.w,
       child: ElevatedButton(
         onPressed: () {
           calculation(btntext);
@@ -27,7 +28,7 @@ class _PortraitPageState extends State<PortraitPage> {
         ),
         child: Text(
           "$btntext",
-          style: TextStyle(fontSize: 26, color: textColor),
+          style: TextStyle(fontSize: 14.sp, color: textColor),
         ),
       ),
     );
@@ -35,6 +36,7 @@ class _PortraitPageState extends State<PortraitPage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     Orientation currentOrientation = MediaQuery.of(context).orientation;
     if (currentOrientation == Orientation.portrait) {
       height = MediaQuery.of(context).size.height;
@@ -58,90 +60,76 @@ class _PortraitPageState extends State<PortraitPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10).w,
                     child: Text(
                       "$text",
-                      style: const TextStyle(color: Colors.white, fontSize: 80),
+                      style:  TextStyle(color: Colors.white, fontSize: 50.sp),
                       textAlign: TextAlign.left,
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    calbutton(
-                      "AC",
-                      Colors.grey,
-                      Colors.white,
-                    ),
-                    calbutton("+/-", Colors.grey, Colors.white),
-                    calbutton("%", Colors.grey, Colors.white),
-                    calbutton("/", Colors.amber[700]!, Colors.white),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  calbutton("AC" ,Colors.grey ,Colors.white),
+                  calbutton("+/-" ,Colors.grey ,Colors.white),
+                  calbutton("%" ,Colors.grey ,Colors.white),
+                  calbutton("/" ,Colors.amber[700]! ,Colors.white),
+                ],
               ),
-              Padding(
-                padding:  EdgeInsets.only(top: 5.0, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    calbutton("7", Colors.white38, Colors.white),
-                    calbutton("8", Colors.white38, Colors.white),
-                    calbutton("9", Colors.white38, Colors.white),
-                    calbutton("x", Colors.amber[700]!, Colors.white),
-                  ],
-                ),
+              SizedBox(height: 2.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  calbutton("7" ,Colors.white38 ,Colors.white),
+                  calbutton("8" ,Colors.white38 ,Colors.white),
+                  calbutton("9" ,Colors.white38 ,Colors.white),
+                  calbutton("x" ,Colors.amber[700]! ,Colors.white),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    calbutton("4", Colors.white38, Colors.white),
-                    calbutton("5", Colors.white38, Colors.white),
-                    calbutton("6", Colors.white38, Colors.white),
-                    calbutton("-", Colors.amber[700]!, Colors.white),
-                  ],
-                ),
+              SizedBox(height: 2.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  calbutton("4" ,Colors.white38 ,Colors.white),
+                  calbutton("5" ,Colors.white38 ,Colors.white),
+                  calbutton("6" ,Colors.white38 ,Colors.white),
+                  calbutton("-" ,Colors.amber[700]! ,Colors.white),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    calbutton("1", Colors.white38, Colors.white),
-                    calbutton("2", Colors.white38, Colors.white),
-                    calbutton("3", Colors.white38, Colors.white),
-                    calbutton("+", Colors.amber[700]!, Colors.white),
-                  ],
-                ),
+              SizedBox(height: 2.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  calbutton("1" ,Colors.white38 ,Colors.white),
+                  calbutton("2" ,Colors.white38 ,Colors.white),
+                  calbutton("3" ,Colors.white38 ,Colors.white),
+                  calbutton("+" ,Colors.amber[700]! ,Colors.white),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: width / 2.5,
-                      height: height/11,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            calculation('0');
-                          },
-                          style: ElevatedButton.styleFrom(shape: const StadiumBorder(),backgroundColor: Colors.white38),
-                          child: const Text(
-                            "0",
-                            style: TextStyle(fontSize: 35, color: Colors.white),
-                          )),
-                    ),
-                    calbutton(".", Colors.white38, Colors.white),
-                    calbutton("=", Colors.amber[700]!, Colors.white),
-                  ],
-                ),
-              )
+              SizedBox(height: 2.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 115.w,
+                    height: 50.h,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          calculation('0');
+                        },
+                        style: ElevatedButton.styleFrom(shape: const StadiumBorder(),backgroundColor: Colors.white38),
+                        child:  Text(
+                          "0",
+                          style: TextStyle(fontSize: 14.sp, color: Colors.white),
+                        )),
+                  ),
+
+                  calbutton("." ,Colors.white38 ,Colors.white),
+                  calbutton("=" ,Colors.amber[700]! ,Colors.white),
+                ],
+              ),
             ],
           )),
     );
